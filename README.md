@@ -4,11 +4,9 @@
 ## chapter 1:
 <ul>
   <li><a href="#">Introduction</a></li> 
-  <ul>
-    <li><a href="#">What is a Virtual Machine ?</a></li>
-    <li><a href="#">How do Virtual Machines work ?</a></li>
-    <li><a href="#">How Disk Signature ?</a></li>
-  </ul>
+  <li><a href="#">What is a Virtual Machine ?</a></li>
+  <li><a href="#">How do Virtual Machines work ?</a></li>
+  <li><a href="#">How Disk Signature ?</a></li>
 </ul>
   
 ## chapter 2:
