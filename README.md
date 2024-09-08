@@ -60,6 +60,7 @@ like <strong>ubuntu.vdi</strong>. This file contains all your data (files, appli
 installing the operating system.</strong><br> So, the task is to find this file
 <strong>ubuntu.vdi</strong> because this file represents the disk space allocated to the virtual machine.
 <<<<<<< HEAD
+<<<<<<< HEAD
 <br> To find this file:</p> <p><strong>Open a terminal and run this command:</strong><br></p> 
 ```bash
 VBoxManage showhdinfo /path/to/file.vdi
@@ -67,6 +68,8 @@ VBoxManage showhdinfo /path/to/file.vdi
 <p>If you do not know the path to the file.vdi, run this command:</p> 
 ```bash
 =======
+=======
+>>>>>>> 19b912f (.)
 <br> To find this file:</p> <p><strong>Open a terminal and run this command:</strong><br></p>
 
 ``` bash
@@ -75,7 +78,18 @@ VBoxManage showhdinfo /path/to/file.vdi
 <p>If you do not know the path to the file.vdi, run this command:</p>
 
 ``` bash
+<<<<<<< HEAD
 >>>>>>> 6ae67d574342e317afd41d58ca5e9727bbfd23a3
+=======
+=======
+<br> To find this file:</p> <p><strong>Open a terminal and run this command:</strong><br></p> 
+```bash
+VBoxManage showhdinfo /path/to/file.vdi
+```
+<p>If you do not know the path to the file.vdi, run this command:</p> 
+```bash
+>>>>>>> dcd0a97 (.g)
+>>>>>>> 19b912f (.)
 find ~/VirtualBox\ VMs/ -name "*vdi"
 ```
 
