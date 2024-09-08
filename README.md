@@ -89,7 +89,19 @@ find ~/VirtualBox\ VMs/ -name "*vdi"
 
 ## Secure Your System By Using Tool Like AppArmor
 <a name="secure-system"></a>
-[Content for Secure Your System By Using Tool Like AppArmor]
+<p>To Secure Your System Like ubuntu, arch-linux ... we need a tool that can secure this system.
+so there is many tool like (AppArmor, SElinux), so all this tool is to protect your system
+by controlling what programm can access. and also this tool working in background. <br>
+For Me <strong>Iam Using AppArmor</strong>. so setUp AppArmor Use The Follwing Commands:<br></p>
+
+<strong>For Install AppArmor</strong>
+``` bash
+sudo apt install apparmor apparmor-utlis
+```
+
+<strong>For Enable And Start Using<strong>
+
+
 
 
 
