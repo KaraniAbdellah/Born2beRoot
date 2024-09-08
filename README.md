@@ -25,11 +25,16 @@
 
 ## Introduction
 <a name="introduction-ch1"></a>
-[Content for Introduction]
+<p>In this project you will enter the wonderful world of virtualization by creating your first virtual machine,
+and at the end of this project you will be able to set up your operating system.</p>
 
 ## What is a Virtual Machine?
 <a name="virtual-machine"></a>
-[Content for What is a Virtual Machine?]
+<p>The simple definition is: A virtual machine (VM) is a simulated computer within another computer. 
+It’s like a “virtual” computer inside your physical computer, and you can put another operating system 
+in this virtual machine. A virtual machine also takes resources from your main computer, like CPU, memory,
+and disk space, and you can allocate any resource you want to your VM.
+To create your virtual machine, you need an application like VirtualBox (UTM if you have macOS).</p>
 
 ## How do Virtual Machines work?
 <a name="how-vms-work"></a>
