@@ -33,8 +33,8 @@ and at the end of this project you will be able to set up your operating system.
 <p>The simple definition is: A virtual machine (VM) is a simulated computer within another computer. 
 It’s like a “virtual” computer inside your physical computer, and you can put another operating system 
 in this virtual machine. A virtual machine also takes resources from your main computer, like CPU, memory,
-and disk space, and you can allocate any resource you want to your VM.
-To create your virtual machine, you need an application like VirtualBox (UTM if you have macOS).</p>
+and disk space, and you can allocate any resource you want to your VM. To create your virtual machine, 
+you need an application like <strong>VirtualBox</strong>(<m>UTM</m> if you have macOS).</p>
 
 ## How do Virtual Machines work?
 <a name="how-vms-work"></a>
