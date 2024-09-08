@@ -51,8 +51,8 @@ you need an application like <strong>VirtualBox</strong>(<strong>UTM</strong> if
 <p>Here are some resources that can help you: <br>
 <strong>Installing VBox on macOS:</strong> <a href="https://youtu.be/hd0Lbtly41Y?si=_xS0wlXFEHyqEZIt">https://youtu.be/hd0Lbtly41Y?si=_xS0wlXFEHyqEZIt</a> <br>
 <strong>Installing VBox on Windows:</strong> <a href="https://youtu.be/8mns5yqMfZk?si=cAlLDM5fjiUn_AY-">https://youtu.be/8mns5yqMfZk?si=cAlLDM5fjiUn_AY-</a> <br>
-<strong>Installing VBox on Linux:</strong> <a href="https://youtu.be/CIq2obbg94I?si=hX7RGD2jHiFmyvrA">https://youtu.be/CIq2obbg94I?si=hX7RGD2jHiFmyvrA</a> <br> <br>
-<strong>Installing Ubuntu on VBox:</strong> <a href="https://youtu.be/hYaCCpvjsEY?si=73U42FgE1YklFh4D">https://youtu.be/hYaCCpvjsEY?si=73U42FgE1YklFh4D</a> <br>
+<strong>Installing VBox on Linux:</strong> <a href="https://youtu.be/CIq2obbg94I?si=hX7RGD2jHiFmyvrA">https://youtu.be/CIq2obbg94I?si=hX7RGD2jHiFmyvrA</a> <br>
+<strong>Installing Ubuntu on VBox:</strong> <a href="https://youtu.be/hYaCCpvjsEY?si=73U42FgE1YklFh4D">https://youtu.be/hYaCCpvjsEY?si=73U42FgE1YklFh4D</a> <br> <br>
 <strong>Note: If you choose another OS, search for how to install it.</strong>
 </p>
 
