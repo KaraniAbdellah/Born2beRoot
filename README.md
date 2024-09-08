@@ -6,13 +6,13 @@
   <li><a href="#introduction-ch1">Introduction</a></li>
   <li><a href="#virtual-machine">What is a Virtual Machine?</a></li>
   <li><a href="#how-vms-work">How do Virtual Machines work?</a></li>
+  <li><a href="#install-vbox">Installing VBox And SetUp Your OS</a></li>
   <li><a href="#disk-signature">How To Get Disk Signature Of Your VM?</a></li>
 </ul>
   
 ## chapter 2:
 <ul>
-  <li><a href="#install-vbox">Install VBox and Create VM</a></li>
-  <li><a href="#secure-system">Secure Your System By Using Tool Like AppArmor</a></li>
+  <li><a href="#install-vbox">Create Partitions Using LVM Tool</a></li>
   <li><a href="#lvm-partitions">Creating Two Partitions Using LVM</a></li>
   <li><a href="#apt-vs-aptitude">What is the Difference Between apt and aptitude</a></li>
 </ul>
@@ -43,14 +43,30 @@ you need an application like <strong>VirtualBox</strong>(<strong>UTM</strong> if
 <p>Imagine you have a big computer. Virtualization allows you to create a virtual machine (VM) inside this computer, and you can install an operating system in this VM. However, the VM needs some resources from the physical computer, so there are special programs called <strong>hypervisors</strong> that control everything. These programs manage and allocate resources from the physical computer to the VM. Once resources are assigned, you can install any operating system inside the VM.</p>
 
 
+## Install VBox and Create VM
+<a name="#install-vbox"></a>
+[Content for Install VBox and Create VM]
+
+
 ## How To Get Disk Signature Of Your VM?
 <a name="disk-signature"></a>
-[Content for How To Get Disk Signature Of Your VM?]
+
+<p>We already said that you need to allocate some resources to your virtual machine, such as 
+CPU, memory, and disk space. The disk space allocated to this VM has a special ID we
+call the <strong>Disk Signature</strong>.<br> <strong>How Can I Get My Disk Signature?</strong>
+<br> When you create a VM, VirtualBox generates a file with the extension <strong>.vdi</strong>, 
+like <strong>ubuntu.vdi</strong>. This file contains all your data (files, applications, etc.).
+<br> <strong>Note: There is also a file called <strong>ubuntu.iso</strong>, which is just for
+installing the operating system.</strong><br> So, the task is to find this file
+<strong>ubuntu.vdi</strong> because this file represents the disk space allocated to the virtual machine.
+<br> To find this file:</p> <p><strong>Open a terminal and run this command:</strong><br></p> 
+``` VBoxManage showhdinfo /path/to/file.vdi ``` 
+<p>If you do not know the path to the file.vdi, run this command:</p> 
+``` find ~/VirtualBox\ VMs/ -name "*vdi" ``` 
+<p>After running this command, look for output that contains 
+<strong>UUID: jhcyhc89cqhcqud...</strong>. This is your disk signature.</p>
 
 
-## Install VBox and Create VM
-<a name="install-vbox"></a>
-[Content for Install VBox and Create VM]
 
 
 ## Secure Your System By Using Tool Like AppArmor
