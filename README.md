@@ -28,37 +28,45 @@
 <p>In this project you will enter the wonderful world of virtualization by creating your first virtual machine,
 and at the end of this project you will be able to set up your operating system.</p>
 
+
 ## What is a Virtual Machine?
 <a name="virtual-machine"></a>
 <p>The simple definition is: A virtual machine (VM) is a simulated computer within another computer. 
 It’s like a “virtual” computer inside your physical computer, and you can put another operating system 
 in this virtual machine. A virtual machine also takes resources from your main computer, like CPU, memory,
 and disk space, and you can allocate any resource you want to your VM. To create your virtual machine, 
-you need an application like <strong>VirtualBox</strong>(<m>UTM</m> if you have macOS).</p>
+you need an application like <strong>VirtualBox</strong>(<strong>UTM</strong> if you have macOS).</p>
+
 
 ## How do Virtual Machines work?
 <a name="how-vms-work"></a>
-[Content for How do Virtual Machines work?]
+<p>Imagine you have a big computer. Virtualization allows you to create a virtual machine (VM) inside this computer, and you can install an operating system in this VM. However, the VM needs some resources from the physical computer, so there are special programs called <strong>hypervisors</strong> that control everything. These programs manage and allocate resources from the physical computer to the VM. Once resources are assigned, you can install any operating system inside the VM.</p>
+
 
 ## How To Get Disk Signature Of Your VM?
 <a name="disk-signature"></a>
 [Content for How To Get Disk Signature Of Your VM?]
 
+
 ## Install VBox and Create VM
 <a name="install-vbox"></a>
 [Content for Install VBox and Create VM]
+
 
 ## Secure Your System By Using Tool Like AppArmor
 <a name="secure-system"></a>
 [Content for Secure Your System By Using Tool Like AppArmor]
 
+
 ## Creating Two Partitions Using LVM
 <a name="lvm-partitions"></a>
 [Content for Creating Two Partitions Using LVM]
 
+
 ## What is the Difference Between apt and aptitude
 <a name="apt-vs-aptitude"></a>
 [Content for What is the Difference Between apt and aptitude]
+
 
 ## What Is SSH Key?
 <a name="introduction-ssh"></a>
