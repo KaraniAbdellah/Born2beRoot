@@ -116,7 +116,7 @@ sudo systemctl status apparmor
 
 ## Creating Two Partitions Using LVM
 <a name="lvm-partitions"></a>
-<p>After creating partitions, it's important to understand what is <strong>LVM (Logical Volume Manager).</p>
+<p>After creating partitions, it's important to understand what is <strong>LVM (Logical Volume Manager).</strong></p>
 
 <p><strong>LVM</strong> is a tool that manages disk partitions with more flexibility. In simpler terms, it allows you to create partitions from your physical disk, meaning you can access and manage your disk space more efficiently. We'll explain this in the following parts.</p>
 
