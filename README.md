@@ -226,7 +226,8 @@ sudo lvcreate -L 50G -n lv2 my_vg  # create the second partition of 50GB
 
 ## What is the Difference Between apt and aptitude
 <a name="apt-vs-aptitude"></a>
-[Content for What is the Difference Between apt and aptitude]
+<p><b>apt:</b> is an easy tool to manage software, install packages, and update the system.</p>
+<p><b>Aptitude:</b> is an older tool that does the same things as <b>apt</b>, but with more features and options.</p>
 
 
 
