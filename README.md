@@ -186,7 +186,7 @@ p: for primary space
 w: save & exit
 ```
 
-<p><strong>By following this command, you will create space for LVM. In my case, I created two spaces on /dev/sda with a total storage of 40GB, and also created /dev/sda3 and /dev/sda4.</strong></p>
+<p><strong>By following this command, you will create space for LVM. In my case, I created two spaces on /dev/sda with a total storage of 100GB, and also created /dev/sda3 and /dev/sda4.</strong></p>
 
 <p>Now, let's encrypt these two spaces represented by the files <strong>/dev/sda3</strong> and <strong>/dev/sda4</strong>.</p>
 
