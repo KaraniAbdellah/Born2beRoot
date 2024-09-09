@@ -99,7 +99,7 @@ For Me <strong>I am Using AppArmor</strong>. so setUp AppArmor Use The Follwing 
 sudo apt install apparmor apparmor-utlis
 ```
 
-<strong>for enable and start using apparmor<strong>
+<strong>for enable and start using apparmor</strong>
 
 ``` bash
 sudo systemctl enable apparmor
