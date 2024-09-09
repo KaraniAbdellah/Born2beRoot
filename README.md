@@ -22,10 +22,15 @@
 </ul>
 
 
+
+
+
 ## Introduction
 <a name="introduction-ch1"></a>
 <p>In this project you will enter the wonderful world of virtualization by creating your first virtual machine,
 and at the end of this project you will be able to set up your operating system.</p>
+
+
 
 
 
@@ -39,9 +44,13 @@ you need an application like <strong>VirtualBox</strong>(<strong>UTM</strong> if
 
 
 
+
+
 ## How do Virtual Machines work?
 <a name="how-vms-work"></a>
 <p>Imagine you have a big computer. Virtualization allows you to create a virtual machine (VM) inside this computer, and you can install an operating system in this VM. However, the VM needs some resources from the physical computer, so there are special programs called <strong>hypervisors</strong> that control everything. These programs manage and allocate resources from the physical computer to the VM. Once resources are assigned, you can install any operating system inside the VM.</p>
+
+
 
 
 
@@ -54,6 +63,8 @@ you need an application like <strong>VirtualBox</strong>(<strong>UTM</strong> if
 <strong>Installing Ubuntu on VBox:</strong> <a href="https://youtu.be/hYaCCpvjsEY?si=73U42FgE1YklFh4D">https://youtu.be/hYaCCpvjsEY?si=73U42FgE1YklFh4D</a> <br> <br>
 <strong>Note: If you choose another OS, search for how to install it.</strong>
 </p>
+
+
 
 
 
@@ -89,6 +100,8 @@ find ~/VirtualBox\ VMs/ -name "*vdi"
 
 
 
+
+
 ## Secure Your System By Using Tool Like AppArmor
 <a name="secure-system"></a>
 <p>To Secure Your System Like ubuntu, arch-linux ... we need a tool that can secure this system.
@@ -113,6 +126,8 @@ sudo systemctl start apparmor
 ``` bash
 sudo systemctl status apparmor
 ```
+
+
 
 
 
@@ -204,9 +219,6 @@ sudo lvcreate -L 50G -n lv2 my_vg  # create the second partition of 50GB
 ```
 
 <p><strong>By following these commands, you will create two partitions, each with a size of 50GB.</strong></p>
-
-
-
 
 
 
