@@ -99,15 +99,44 @@ For Me <strong>Iam Using AppArmor</strong>. so setUp AppArmor Use The Follwing C
 sudo apt install apparmor apparmor-utlis
 ```
 
-<strong>For Enable And Start Using<strong>
+<strong>for enable and start using apparmor<strong>
 
+``` bash
+sudo systemctl enable apparmor
+sudo systemctl start apparmor
+```
 
+<strong>for check the status</strong>
+
+``` bash
+sudo systemctl status apparmor
+```
 
 
 
 ## Creating Two Partitions Using LVM
 <a name="lvm-partitions"></a>
-[Content for Creating Two Partitions Using LVM]
+<p>After creating partitions, it's important to understand what is <strong>LVM (Logical Volume Manager)</strong>.</p>
+
+<p><strong>LVM</strong> is a tool that manages disk partitions with more flexibility. In simpler terms, it allows you to create partitions from your physical disk, meaning you can access and manage your disk space more efficiently. We'll explain this in the following parts.</p>
+
+<p><strong>Important Concepts:</strong></p>
+<p><strong>PV (Physical Volume):</strong> This is your actual hard drive, like an HDD or SSD.</p>
+<p><strong>VG (Volume Group):</strong> This is a pool of space created from one or more Physical Volumes (PVs).</p>
+<p><strong>LV (Logical Volume):</strong> This is the partition or space that you create from the Volume Group (VG).</p>
+<p><strong>Example:</strong></p>
+
+<p>Suppose your machine has two disks, a <strong>HDD (256GB)</strong> and a <strong>SSD (256GB)</strong>, and you want to create a partition using LVM. To do this, you take space from both disks to use with LVM. For example, you decide to work with 100GB, taking 50GB from the HDD and 50GB from the SSD.</p>
+
+<p>Next, you create a <strong>Volume Group (VG)</strong> using LVM. This Volume Group is like a box that holds the 100GB of space. Inside this box (VG), you can then create a <strong>Logical Volume (LV)</strong>, which will be your partition.</p>
+
+<p>In summary, the process is to:</p>
+<p>1. Identify the space you want to work with in LVM.<br>
+2. Create a <strong>Volume Group (VG)</strong> with that space.<br>
+3. Inside the Volume Group, create a <strong>Logical Volume (LV)</strong>.</p>
+
+<p><strong>Note:</strong> After creating the partition, it's important to encrypt the 100GB you allocated to LVM for security. Encryption helps protect your data.</p>
+
 
 
 
