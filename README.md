@@ -78,7 +78,7 @@ installing the operating system.</strong> <br>
 VBoxManage showhdinfo /path/to/file.vdi
 ```
 
-<p>If you do not know the path to the file.vdi, run this command:</p>
+<strong>If you do not know the path to the file.vdi, run this command:</strong>
 
 ```bash
 find ~/VirtualBox\ VMs/ -name "*vdi"
