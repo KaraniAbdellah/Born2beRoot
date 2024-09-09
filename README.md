@@ -63,12 +63,15 @@ you need an application like <strong>VirtualBox</strong>(<strong>UTM</strong> if
 
 <p>We already said that you need to allocate some resources to your virtual machine, such as 
 CPU, memory, and disk space. The disk space allocated to this VM has a special ID we
-call the <strong>Disk Signature</strong>.<br> <strong>How Can I Get My Disk Signature?</strong>
+call the <strong>Disk Signature</strong>.<br> <br>
+<strong>How Can I Get My Disk Signature?</strong> <br>
 <br> When you create a VM, VirtualBox generates a file with the extension <strong>.vdi</strong>, 
 like <strong>ubuntu.vdi</strong>. This file contains all your data (files, applications, etc.).
-<br> <strong>Note: There is also a file called <strong>ubuntu.iso</strong>, which is just for
-installing the operating system.</strong><br> So, the task is to find this file
-<strong>ubuntu.vdi</strong> because this file represents the disk space allocated to the virtual machine.
+<br> <br> 
+<strong>Note: There is also a file called <strong>ubuntu.iso</strong>, which is just for
+installing the operating system.</strong> <br> 
+<br> So, the task is to find this file
+<strong>ubuntu.vdi</strong> because this file represents the disk space allocated to the virtual machine.<br> 
 <br> To find this file:</p> <p><strong>Open a terminal and run this command:</strong><br></p> 
 
 ```bash
