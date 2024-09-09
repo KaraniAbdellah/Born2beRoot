@@ -97,7 +97,7 @@ so there is many tool like (AppArmor, SElinux), so all this tool is to protect y
 by controlling what programm can access. and also this tool working in background. <br>
 For Me <strong>I am Using AppArmor</strong>. so setUp AppArmor Use The Follwing Commands:<br></p>
 
-<strong>for fnstall AppArmor</strong>
+<strong>for install AppArmor</strong>
 ``` bash
 sudo apt install apparmor apparmor-utlis
 ```
@@ -144,21 +144,21 @@ sudo systemctl status apparmor
 
 <p><strong>Installing LVM and the tool for encrypting the spaces:</strong></p>
 
-<pre><code>bash
+<pre><code>
 sudo apt install lvm2
 </code></pre>
 
-<pre><code>bash
-sudo apt install lvm1 cryptsetup
+<pre><code>
+sudo apt install cryptsetup
 </code></pre>
 
 <p><strong>Define the disk and space that will be used for LVM:</strong></p>
 
-<pre><code>bash
+<pre><code>
 lsblk  # see the available disk (in my case I am using /dev/sda)
 </code></pre>
 
-<pre><code>bash
+<pre><code>
 sudo fdisk /dev/sda
 </code></pre>
 
@@ -166,7 +166,7 @@ sudo fdisk /dev/sda
 
 <p>By running the following commands, you will see a menu:</p>
 
-<pre><code>bash
+<pre><code>
 n: create new space
 p: for primary space
 3: assign a number to this space
@@ -179,32 +179,33 @@ w: save & exit
 
 <p><strong>Encryption of /dev/sda3 and /dev/sda4:</strong></p>
 
-<pre><code>bash
-sudo cryptsetup luksFormat /dev/sda3 /dev/sda4  # encrypt two spaces
+<pre><code>
+sudo cryptsetup luksFormat /dev/sda3  # encrypt /dev/sda3
+sudo cryptsetup luksFormat /dev/sda4  # encrypt /dev/sda4
 sudo cryptsetup open /dev/sda3 crypt_sda3  # open encryption for /dev/sda3
 sudo cryptsetup open /dev/sda4 crypt_sda4  # open encryption for /dev/sda4
 </code></pre>
 
 <p><strong>Create Physical Volumes (PVs) for LVM:</strong></p>
 
-<pre><code>bash
+<pre><code>
 sudo pvcreate /dev/mapper/crypt_sda3 /dev/mapper/crypt_sda4
 </code></pre>
 
 <p><strong>Create Volume Group (VG):</strong></p>
 
-<pre><code>bash
+<pre><code>
 sudo vgcreate my_vg /dev/mapper/crypt_sda3 /dev/mapper/crypt_sda4
 </code></pre>
 
 <p><strong>Create Logical Volumes (LVs) inside the Volume Group (VG):</strong></p>
 
-<pre><code>bash
-sudo lvcreate -L 50G -n lv1 my_vg  # first partition of 50GB
-sudo lvcreate -L 50G -n lv2 my_vg  # second partition of 50GB
+<pre><code>
+sudo lvcreate -L 50G -n lv1 my_vg  # create the first partition of 50GB
+sudo lvcreate -L 50G -n lv2 my_vg  # create the second partition of 50GB
 </code></pre>
 
-<p><strong>By following these commands, you will create two partitions with a size of 50GB each.</strong></p>
+<p><strong>By following these commands, you will create two partitions, each with a size of 50GB.</strong></p>
 
 
 
