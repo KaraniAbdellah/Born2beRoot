@@ -12,7 +12,6 @@
   
 ## chapter 2:
 <ul>
-  <li><a href="#install-vbox">Create Partitions Using LVM Tool</a></li>
   <li><a href="#lvm-partitions">Creating Two Partitions Using LVM</a></li>
   <li><a href="#apt-vs-aptitude">What is the Difference Between apt and aptitude</a></li>
 </ul>
