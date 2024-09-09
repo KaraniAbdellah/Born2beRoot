@@ -92,7 +92,7 @@ find ~/VirtualBox\ VMs/ -name "*vdi"
 <p>To Secure Your System Like ubuntu, arch-linux ... we need a tool that can secure this system.
 so there is many tool like (AppArmor, SElinux), so all this tool is to protect your system
 by controlling what programm can access. and also this tool working in background. <br>
-For Me <strong>Iam Using AppArmor</strong>. so setUp AppArmor Use The Follwing Commands:<br></p>
+For Me <strong>I am Using AppArmor</strong>. so setUp AppArmor Use The Follwing Commands:<br></p>
 
 <strong>For Install AppArmor</strong>
 ``` bash
@@ -116,7 +116,7 @@ sudo systemctl status apparmor
 
 ## Creating Two Partitions Using LVM
 <a name="lvm-partitions"></a>
-<p>After creating partitions, it's important to understand what is <strong>LVM (Logical Volume Manager)</strong>.</p>
+<p>After creating partitions, it's important to understand what is <strong>LVM (Logical Volume Manager).</p>
 
 <p><strong>LVM</strong> is a tool that manages disk partitions with more flexibility. In simpler terms, it allows you to create partitions from your physical disk, meaning you can access and manage your disk space more efficiently. We'll explain this in the following parts.</p>
 
