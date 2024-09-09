@@ -139,29 +139,25 @@ sudo systemctl status apparmor
 
 <p><strong>Note:</strong> After creating the partition, it's important to encrypt the 100GB you allocated to LVM for security. Encryption helps protect your data.</p>
 <p>So now let's create partitions by using the following commands:</p>
-<p><strong>Installing LVM and the tool for encrypting the spaces:</strong></p>
 
+<p><strong>Installing LVM and the tool for encrypting the spaces:</strong></p>
 ``` bash
 sudo apt install lvm2
 ```
-
 ``` bash
 sudo apt install cryptsetup
 ```
 
 <p><strong>Define the disk and space that will be used for LVM:</strong></p>
-
 ``` bash
 lsblk  # see the available disk (in my case I am using /dev/sda)
 ```
-
 ``` bash
 sudo fdisk /dev/sda
 ```
 
 <p><strong>Taking the space for LVM:</strong></p>
 <p>By running the following commands, you will see a menu:</p>
-
 ``` bash
 n: create new space
 p: for primary space
@@ -171,8 +167,8 @@ w: save & exit
 
 <p><strong>By following this command, you will create space for LVM. In my case, I created two spaces on /dev/sda with a total storage of 40GB, and also created /dev/sda3 and /dev/sda4.</strong></p>
 <p>Now, let's encrypt these two spaces represented by the files <strong>/dev/sda3</strong> and <strong>/dev/sda4</strong>.</p>
-<p><strong>Encryption of /dev/sda3 and /dev/sda4:</strong></p>
 
+<p><strong>Encryption of /dev/sda3 and /dev/sda4:</strong></p>
 ``` bash
 sudo cryptsetup luksFormat /dev/sda3  # encrypt /dev/sda3
 sudo cryptsetup luksFormat /dev/sda4  # encrypt /dev/sda4
@@ -181,23 +177,21 @@ sudo cryptsetup open /dev/sda4 crypt_sda4  # open encryption for /dev/sda4
 ```
 
 <p><strong>Create Physical Volumes (PVs) for LVM:</strong></p>
-
 ``` bash
 sudo pvcreate /dev/mapper/crypt_sda3 /dev/mapper/crypt_sda4
 ```
 
 <p><strong>Create Volume Group (VG):</strong></p>
-
 ``` bash
 sudo vgcreate my_vg /dev/mapper/crypt_sda3 /dev/mapper/crypt_sda4
 ```
 
 <p><strong>Create Logical Volumes (LVs) inside the Volume Group (VG):</strong></p>
-
 ``` bash
 sudo lvcreate -L 50G -n lv1 my_vg  # create the first partition of 50GB
 sudo lvcreate -L 50G -n lv2 my_vg  # create the second partition of 50GB
 ```
+
 <p><strong>By following these commands, you will create two partitions, each with a size of 50GB.</strong></p>
 
 
