@@ -156,7 +156,7 @@ sudo apt install cryptsetup
 
 ``` bash
 lsblk  # see the available disk (in my case I am using /dev/sda)
-</code></pre>
+```
 
 ``` bash
 sudo fdisk /dev/sda
