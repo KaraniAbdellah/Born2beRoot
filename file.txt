@@ -1,13 +1,78 @@
-@ Install Virtual Machine
-@ Make A Video How Virtual Machine in Ubuntu
-// What Is Virtual Machine
-// Install Arch Linux in Virtual Machine
-// Make A Video How Install Arch In Virtual Machine
-// Learn SSH
-// Connect Arch With Ubunutu Using SSH Key
+Overview
+You need to set up a virtual machine (VM) with specific security settings and configurations. Here’s how to tackle each part:
 
 
+SSH Configuration:
+SSH Port: Set SSH to run only on port 4242.
+No Root SSH Login: Prevent root from logging in via SSH.
 
+
+Firewall Setup (UFW):
+Install UFW: Use DNF to install UFW (Uncomplicated Firewall) on CentOS.
+Configure UFW: Allow only port 4242 for SSH and block all other ports.
+
+
+Hostname Configuration:
+Set Hostname: Change your VM's hostname to include your login ending with "42" (e.g., wil42).
+
+
+Password Policy:
+Password Expiration: Set passwords to expire every 30 days.
+Minimum Days: Set a minimum of 2 days before a password can be changed.
+Warning: Provide a 7-day warning before passwords expire.
+Password Requirements:
+At least 10 characters.
+Must include an uppercase letter and a number.
+No more than 3 consecutive identical characters.
+Must not include the username.
+Root Password: Should comply with the above policy, but with additional rules.
+
+
+User and Groups:
+User Creation: Create a user with your login name.
+Groups: Add this user to user42 and sudo groups.
+
+Sudo Configuration:
+Password Attempts: Limit to 3 incorrect password attempts.
+Custom Error Message: Display a custom message for incorrect sudo password attempts.
+Logging: Archive sudo actions (input and output) to /var/log/sudo/.
+TTY Mode: Enable TTY mode for sudo.
+Path Restriction: Restrict sudo to specific paths (e.g., /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin).
+
+
+Changing Passwords:
+Update Passwords: Change passwords for all accounts, including root.
+Step-by-Step Guide:
+
+Configure SSH:
+Edit /etc/ssh/sshd_config to set Port 4242 and PermitRootLogin no.
+Restart SSH service.
+
+Set Up UFW:
+Install UFW using dnf install ufw.
+Allow port 4242: ufw allow 4242/tcp.
+Enable UFW: ufw enable.
+
+
+Change Hostname:
+Edit /etc/hostname and /etc/hosts to set the hostname to your login ending with 42.
+Restart the VM or use hostnamectl to apply changes.
+
+
+Set Password Policy:
+Use chage command to set expiration policies.
+Configure password rules in /etc/security/pwquality.conf.
+
+
+Create User and Set Groups:
+Create a user with useradd and add to groups with usermod -aG user42,sudo <username>.
+
+
+Configure Sudo:
+
+Edit /etc/sudoers to set limits on password attempts, custom messages, and log settings.
+Change All Passwords:
+Use passwd command to update passwords for all accounts.
 
 
 
