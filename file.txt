@@ -39,6 +39,10 @@ Logging: Archive sudo actions (input and output) to /var/log/sudo/.
 TTY Mode: Enable TTY mode for sudo.
 Path Restriction: Restrict sudo to specific paths (e.g., /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin).
 
+///////////////////////////////////////////
+
+
+
 
 Changing Passwords:
 Update Passwords: Change passwords for all accounts, including root.
