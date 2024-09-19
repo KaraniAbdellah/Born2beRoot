@@ -9,7 +9,7 @@
   <li><a href="#install-vbox">Installing VBox And SetUp Your OS</a></li>
   <li><a href="#disk-signature">How To Get Disk Signature Of Your VM?</a></li>
 </ul>
-  
+
 ## chapter 2:
 <ul>
   <li><a href="#lvm-partitions">Creating Two Partitions Using LVM</a></li>
@@ -18,7 +18,9 @@
 
 ## chapter 3:
 <ul>
-  <li><a href="#introduction-ssh">What Is SSH Key?</a></li>
+  <li><a href="#introduction-ssh">What Is SSH Key</a></li>
+  <li><a href="#ssh-configuration">SSH Configuration</a></li>
+  <li><a href="#setup-ufw">Setup UFW</a></li>
 </ul>
 
 
@@ -233,19 +235,54 @@ sudo lvcreate -L 50G -n lv2 my_vg  # create the second partition of 50GB
 
 ## What Is SSH Key?
 <a name="introduction-ssh"></a>
-[Content Of What Is SSH]
+<p><b>SSH(Secure Shell):</b> is tool that lets you connect machine A with machine B via shh.
+if we use machine A to connect With machine B, you can acess to filies and every exit in machine B.<br></p>
+<p>fo connecting two computer or machines we should be some imporant basics that are: machines connecto via port.<br>
+<b>Port:</b>is special address in your computer where data can enter or leave.(we are going to ducess this in next parts)</p>
+
+<p><b>NOTE: I am using mint distro in my mean machine (machine A), and mint Distro in my VM (machine B).</b></p>
 
 
 
+## SHH Configuration
+<a name="ssh-configuration"></a>
+<p>in this part we should be configure ssh by tell to the computer wich address or (port)
+can data come or leave wich means we should set up port. the port used is 4242</p>
+
+<p><b>installing ssh:</b></p>
+
+``` bash
+sudo system ctl status ssh // you can see ssh could not be found
+sudo apt update // for updating the packages in linux
+sudo apt install openssh-server // install ssh
+sudo apt reinstall openssh-server // Reinstalls SSH server.
+```
+
+<p><b>setUP Port:</b></p>
+
+``` bash
+sudo nano /etc/sshd_config // find the line "#Port 22" --> change to "Port 4242"
+sudo service ssh restart // restart the ssh
+sudo lsof -i -P -n | grep ssh // You must see thing like this --> TCP *:4242 (LISTEN)
+
+``
+<p><b>Problems</b></p>
+<p>if you find a problem or ssh use port 22. that may be your ssh controleed byt ssh.socket
+to solve it run this folowwing commands</p>
+
+``` bash
+sudo systemctl disable ssh.socket // To disable SSH controlled by ssh.socket
+sudo systemctl disable ssh.socket // To disable SSH controlled by ssh.socket
+sudo systemctl restart ssh // restart ssh
+sudo lsof -i -P -n | grep ssh // You must see thing like this --> TCP *:4242 (LISTEN)
+```
+
+<p><b>NOTE: Setup Port Must Be In Both Machines (machine A & machine B)</b></p>
 
 
 
-
-
-
-
-
-
+## Setup UFW
+<a name="setup-ufw">/a>
 
 
 

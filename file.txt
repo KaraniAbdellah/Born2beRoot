@@ -36,7 +36,7 @@ Sudo Configuration:
 Password Attempts: Limit to 3 incorrect password attempts.
 Custom Error Message: Display a custom message for incorrect sudo password attempts.
 Logging: Archive sudo actions (input and output) to /var/log/sudo/.
-TTY Mode: Enable TTY mode for sudo.
+TTY Mode: Enable TTY mode for sudo. [must exit a human interaction]
 Path Restriction: Restrict sudo to specific paths (e.g., /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin).
 
 ///////////////////////////////////////////
