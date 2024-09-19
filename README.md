@@ -264,8 +264,8 @@ sudo apt reinstall openssh-server // Reinstalls SSH server.
 sudo nano /etc/sshd_config // find the line "#Port 22" --> change to "Port 4242"
 sudo service ssh restart // restart the ssh
 sudo lsof -i -P -n | grep ssh // You must see thing like this --> TCP *:4242 (LISTEN)
+```
 
-``
 <p><b>Problems</b></p>
 <p>if you find a problem or ssh use port 22. that may be your ssh controleed byt ssh.socket
 to solve it run this folowwing commands</p>
