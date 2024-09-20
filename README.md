@@ -336,7 +336,7 @@ you want to connect to (machine B from machine A).</p>
 </ul>
 
 <p><b>NOTE: This password policy will affect the user you use to connect via ssh. 
-That’s why we should create a new user.</b></p>
+That’s why we should create a new user in machine B.</b></p>
 
 
 <p><b>Create User and Add It to Group</b></p>
