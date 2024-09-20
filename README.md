@@ -235,55 +235,55 @@ sudo lvcreate -L 50G -n lv2 my_vg  # create the second partition of 50GB
 
 ## What Is SSH Key?
 <a name="introduction-ssh"></a>
-<p><b>SSH(Secure Shell):</b> is tool that lets you connect machine A with machine B via shh.
-if we use machine A to connect With machine B, you can acess to filies and every exit in machine B.<br></p>
-<p>fo connecting two computer or machines we should be some imporant basics that are: machines connecto via port.<br>
-<b>Port:</b>is special address in your computer where data can enter or leave.(we are going to ducess this in next parts)</p>
+<p><b>SSH (Secure Shell):</b> is a tool that allows you to connect machine A to machine B.
+When you use machine A to connect to machine B, you can access files and everything on machine B.<br></p>
 
-<p><b>NOTE: I am using mint distro in my mean machine (machine A), and mint Distro in my VM (machine B).</b></p>
+<p>To connect two computers, you need to know some basics: machines connect through a port.<br>
+<b>Port:</b> is a special address on your computer where data can come in or go out. (We will discuss this later.)</p>
+
+<p><b>NOTE: I am using the Mint distro on my main machine (machine A) and the Mint distro on my VM (machine B).</b></p>
 
 
 
 ## SHH Configuration
 <a name="ssh-configuration"></a>
-<p>in this part we should be configure ssh by tell to the computer wich address or (port)
-can data come or leave wich means we should set up port. the port used is 4242</p>
+<p>In this part, we will configure SSH by telling the computer which port data can enter or leave. 
+We need to set up the port, and the port we will use is 4242.</p>
 
-<p><b>installing ssh:</b></p>
+<p><b>Installing SSH:</b></p>
 
 ``` bash
-sudo system ctl status ssh // you can see ssh could not be found
-sudo apt update // for updating the packages in linux
-sudo apt install openssh-server // install ssh
-sudo apt reinstall openssh-server // Reinstalls SSH server.
+sudo systemctl status ssh // SSH could not be found
+sudo apt update // For updating the packages in Linux
+sudo apt install openssh-server // Install SSH
+sudo apt reinstall openssh-server // Reinstalls SSH server
 ```
 
-<p><b>setUP Port:</b></p>
+<p><b>Setup Port:</b></p>
 
 ``` bash
-sudo nano /etc/sshd_config // find the line "#Port 22" --> change to "Port 4242"
-sudo service ssh restart // restart the ssh
-sudo lsof -i -P -n | grep ssh // You must see thing like this --> TCP *:4242 (LISTEN)
+sudo nano /etc/sshd_config // Find the line "#Port 22" and change it to Port 4242
+sudo service ssh restart // Restart the SSH service
+sudo lsof -i -P -n | grep ssh // You should see something like this --> TCP *:4242 (LISTEN)
 ```
 
 <p><b>Problems</b></p>
-<p>if you find a problem or ssh use port 22. that may be your ssh controleed byt ssh.socket
-to solve it run this folowwing commands</p>
+<p>If you have a problem or if SSH is using port 22, it might be controlled by 
+<code>ssh.socket</code>. To fix this, run these commands:</p>
 
 ``` bash
-sudo systemctl disable ssh.socket // To disable SSH controlled by ssh.socket
-sudo systemctl disable ssh.socket // To disable SSH controlled by ssh.socket
-sudo systemctl restart ssh // restart ssh
-sudo lsof -i -P -n | grep ssh // You must see thing like this --> TCP *:4242 (LISTEN)
+sudo systemctl stop ssh.socket  // To stop SSH controlled by ssh.socket  
+sudo systemctl disable ssh.socket  // To disable SSH controlled by ssh.socket  
+sudo systemctl restart ssh  // Restart SSH  
+sudo systemctl start ssh  // Start SSH  
+sudo lsof -i -P -n | grep ssh  // You should see something like this --> TCP *:4242 (LISTEN)  
 ```
 
-<p><b>NOTE: Setup Port Must Be In Both Machines (machine A & machine B)</b></p>
-
+<p><b>NOTE: The port must be set up on both machines (machine A and machine B).</b></p>
 
 
 ## Setup UFW
 <a name="setup-ufw">/a>
-
 
 
 
