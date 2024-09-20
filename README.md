@@ -338,14 +338,6 @@ you want to connect to (machine B from machine A).</p>
 <p><b>NOTE: This password policy will affect the user you use to connect via ssh. 
 That’s why we should create a new user in machine B.</b></p>
 
-
-<p><b>Create User and Add It to Group</b></p>
-
-```bash
-sudo groupadd test  // Create a group  
-sudo useradd -m -g test john  // Create a new user "john" and add it to the "test" group  
-```
-
 <p><b>Setup the Password Policy:</b></p>
 
 ```bash
@@ -366,11 +358,20 @@ maxrepeat=3 // Max 3 identical characters
 reject_username // No username in password
 ```
 
+<p><b>Create User and Add It to Group</b></p>
 
+```bash
+sudo groupadd test  // Create a group  
+sudo useradd -m -g test john  // Create a new user "john" and add it to the "test" group  
+sudo passwd john // enter the password respecting the roles
+```
 
+<p><b>Let's Connect:</b></p>
+<p>In this part, I am on machine A and I want to connect to machine B. To do this, follow this command:</p>
 
-
-
+```bash
+ssh -p 4242 john@ip_address_machine_B  // Get the IP address on machine B using 'ip a'
+```
 
 
 
