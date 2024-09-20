@@ -372,7 +372,7 @@ sudo passwd john // enter the password respecting the roles
 ```bash
 ssh -p 4242 john@ip_address_machine_B  // Get the IP address on machine B using 'ip a'
 ```
-
+<p><b>NOTE: After running this command, enter the password and you will find yourself on machine B.</b></p>
 
 
 
