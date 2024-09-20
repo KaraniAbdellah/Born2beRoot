@@ -254,7 +254,7 @@ We need to set up the port, and the port we will use is 4242.</p>
 
 ``` bash
 sudo systemctl status ssh // SSH could not be found
-sudo apt update // For updating the packages in Linux
+sudo apt update // updating the packages in Linux
 sudo apt install openssh-server // Install SSH
 sudo apt reinstall openssh-server // Reinstalls SSH server
 ```
@@ -262,9 +262,9 @@ sudo apt reinstall openssh-server // Reinstalls SSH server
 <p><b>Setup Port:</b></p>
 
 ``` bash
-sudo nano /etc/sshd_config // Find the line "#Port 22" and change it to Port 4242
+sudo nano /etc/sshd_config // Change this "#Port 22" by this "Port 4242"
 sudo service ssh restart // Restart the SSH service
-sudo lsof -i -P -n | grep ssh // You should see something like this --> TCP *:4242 (LISTEN)
+sudo lsof -i -P -n | grep ssh // Ouput --> ...TCP *:4242 (LISTEN)...
 ```
 
 <p><b>Problems</b></p>
@@ -272,22 +272,45 @@ sudo lsof -i -P -n | grep ssh // You should see something like this --> TCP *:42
 <code>ssh.socket</code>. To fix this, run these commands:</p>
 
 ``` bash
-sudo systemctl stop ssh.socket  // To stop SSH controlled by ssh.socket  
-sudo systemctl disable ssh.socket  // To disable SSH controlled by ssh.socket  
+sudo systemctl stop ssh.socket  // Stop SSH controlled by ssh.socket  
+sudo systemctl disable ssh.socket  // To disable SSH controlled by ssh.socket
 sudo systemctl restart ssh  // Restart SSH  
 sudo systemctl start ssh  // Start SSH  
-sudo lsof -i -P -n | grep ssh  // You should see something like this --> TCP *:4242 (LISTEN)  
+sudo lsof -i -P -n | grep ssh  // Ouput --> ...TCP *:4242 (LISTEN)...
+```
+
+<p>Sometimes SSH may not work because it needs to be enabled. You should also check its status.
+To do this, run the following commands:</p>
+
+``` bash
+sudo systemctl status ssh  // Check if SSH is disabled or enabled  
+sudo systemctl enable ssh  // Enable SSH  
+sudo systemctl status ssh  // Output: ...loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)...
 ```
 
 <p><b>NOTE: The port must be set up on both machines (machine A and machine B).</b></p>
 
 
+
 ## Setup UFW
-<a name="setup-ufw">/a>
+<a name="setup-ufw"></a>
 
+<p>The goal of this part is to tell the computer to allow any data coming from port 4242 to enter.
+This is what we call a firewall.<br></p> <b>Firewall: is like a person who decides which information
+can come in or go out of the computer through port 4242.</b></p>
 
+<p>To do this, we need a tool called <b>UFW.</b></p>
 
+<p>Setup UFW:</p>
 
+```bash
+sudo apt update
+sudo apt install ufw // Install UFW
+sudo enable ufw // Enable UFW 
+sudo allow 4242/tcp // Allow data to come in or go out from port 4242
+sudo ufw reload 
+sudo ufw status
+```
 
 
 
