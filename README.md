@@ -21,6 +21,7 @@
   <li><a href="#introduction-ssh">What Is SSH Key</a></li>
   <li><a href="#ssh-configuration">SSH Configuration</a></li>
   <li><a href="#setup-ufw">Setup UFW</a></li>
+  <li><a href="#setup-password">Setup Password</a></li>
 </ul>
 
 
@@ -301,7 +302,7 @@ can come in or go out of the computer through port 4242.</b></p>
 
 <p>To do this, we need a tool called <b>UFW.</b></p>
 
-<p>Setup UFW:</p>
+<p><b>Setup UFW:</b></p>
 
 ```bash
 sudo apt update
@@ -312,16 +313,58 @@ sudo ufw reload
 sudo ufw status
 ```
 
+<p><b>NOTE: The <code>UFW</code> must be set up on both machines (machine A and machine B).</b></p>
 
 
 
+## Setup Password
+<a href="#setup-password"></a>
+
+<p>The goal of this part is to connect machine A with machine B using just a username and password. 
+We will also set up some password requirements (we will see this later). In my case, 
+I want to connect to machine B using machine A.</p> <p>NOTE: Set the password only on the machine 
+you want to connect to (machine B from machine A).</p>
+
+<p><b>Requirements:</b></p>
+
+<ul>
+	<li>The password will expire every 30 days.</li> 
+	<li>If we change the password for a username, we must wait 2 days before changing it again.</li> 
+	<li>Receive a reminder 7 days before the password expires.</li>
+	<li>The password must have at least 10 characters, include one number, have uppercase
+	letters, and no more than 3 identical characters in a row.</li> 
+</ul>
+
+<p><b>NOTE: This password policy will affect the user you use to connect via ssh. 
+That’s why we should create a new user.</b></p>
 
 
+<p><b>Create User and Add It to Group</b></p>
 
+```bash
+sudo groupadd test  // Create a group  
+sudo useradd -m -g test john  // Create a new user "john" and add it to the "test" group  
+```
 
+<p><b>Setup the Password Policy:</b></p>
 
+```bash
+sudo chage --maxdays 30 john  // Max age: 30 days  
+sudo chage --mindays 2 john  // Min age: 2 days  
+sudo chage --warndays 7 john  // Warn: 7 days before expiration  
 
+sudo nano /etc/pam.d/common-password  
+// Add this line:  
+// password requisite pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username  
 
+retry=3 // 3 attempts allowed
+minlen=10 // Minimum 10 characters
+ucredit=-1 // At least 1 uppercase letter
+lcredit=-1 // At least 1 lowercase letter
+dcredit=-1 // At least 1 digit
+maxrepeat=3 // Max 3 identical characters
+reject_username // No username in password
+```
 
 
 
