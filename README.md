@@ -22,6 +22,7 @@
   <li><a href="#ssh-configuration">SSH Configuration</a></li>
   <li><a href="#setup-ufw">Setup UFW</a></li>
   <li><a href="#setup-password">Setup Password</a></li>
+  <li><a href="#sudo-configuration">Sudo Configuration</a></li>
 </ul>
 
 
@@ -388,8 +389,9 @@ and change "NAT" to "Bridged Adapter". This will give your VM its own IP address
 
 
 
-
-
+## Sudo Configuration
+<a href="#sudo-configuration"></a>
+<p>in this task we will take <code>sudo</code> command to another level</p>
 
 
 
