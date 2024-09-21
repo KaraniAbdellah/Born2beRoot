@@ -360,6 +360,8 @@ maxrepeat=3 // Max 3 identical characters
 reject_username // No username in password
 ```
 
+<p>The purpose of setting up a password policy in your task is to <b>increase security</b>.</p>
+
 <p><b>Create User and Add It to Group</b></p>
 
 ```bash
@@ -383,6 +385,18 @@ ssh -p 4242 john@ip_address_machine_B  // Get the IP address on machine B using 
 to Machine A (the VM), you may face an issue with the IP address. To solve this, you need to change 
 the settings in VirtualBox. <code> Go to <i>Settings</i> &rarr; <i>Network</i> &rarr; <i>Attached to</i> 
 and change "NAT" to "Bridged Adapter". This will give your VM its own IP address.</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
