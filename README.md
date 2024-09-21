@@ -242,7 +242,9 @@ When you use machine A to connect to machine B, you can access files and everyth
 <p>To connect two computers, you need to know some basics: machines connect through a port.<br>
 <b>Port:</b> is a special address on your computer where data can come in or go out. (We will discuss this later.)</p>
 
-<p><b>NOTE: I am using the Mint distro on my main machine (machine A) and the Mint distro on my VM (machine B).</b></p>
+<p><b>NOTE: I am using the Mint distro on my main machine (Machine B) and the Mint distro on my 
+VM (Machine A). We want to access the files that exist on Machine B from Machine A.</b></p>
+
 
 
 
@@ -367,12 +369,30 @@ sudo passwd john // enter the password respecting the roles
 ```
 
 <p><b>Let's Connect:</b></p>
-<p>In this part, I am on machine A and I want to connect to machine B. To do this, follow this command:</p>
+<p>In this section, I am on Machine A (a machine already set up using VirtualBox) and I want to 
+connect to Machine B. To do this, follow these commands:</p>
+
 
 ```bash
 ssh -p 4242 john@ip_address_machine_B  // Get the IP address on machine B using 'ip a'
 ```
-<p><b>NOTE: After running this command, enter the password and you will find yourself on machine B.</b></p>
+<p><b>After running this command, enter the password and you will find yourself on machine B.</b></p>
+
+
+<p><b>NOTE:</b> If you are doing the reverse, meaning you are connecting from Machine B (your main machine)
+to Machine A (the VM), you may face an issue with the IP address. To solve this, you need to change 
+the settings in VirtualBox. Go to <i>Settings</i> &rarr; <i>Network</i> &rarr; <i>Attached to</i> 
+and change "NAT" to "Bridged Adapter". This will give your VM its own IP address.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
