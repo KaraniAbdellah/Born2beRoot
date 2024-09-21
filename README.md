@@ -381,8 +381,8 @@ ssh -p 4242 john@ip_address_machine_B  // Get the IP address on machine B using 
 
 <p><b>NOTE:</b> If you are doing the reverse, meaning you are connecting from Machine B (your main machine)
 to Machine A (the VM), you may face an issue with the IP address. To solve this, you need to change 
-the settings in VirtualBox. Go to <i>Settings</i> &rarr; <i>Network</i> &rarr; <i>Attached to</i> 
-and change "NAT" to "Bridged Adapter". This will give your VM its own IP address.</p>
+the settings in VirtualBox. <code> Go to <i>Settings</i> &rarr; <i>Network</i> &rarr; <i>Attached to</i> 
+and change "NAT" to "Bridged Adapter". This will give your VM its own IP address.</code></p>
 
 
 
