@@ -407,10 +407,42 @@ and change "NAT" to "Bridged Adapter". This will give your VM its own IP address
     <bdi>We should allow execution of commands with <code>sudo</code> only from specific safe directories.</bdi>
 </ul>
 
+<p>Know let's do it:</p>
 
+``` bash
+sudo visudo // open configuration file of sudo
 
+// Password Attemps
+Defaults        passwd_tries=3
 
+// Generate Error Message
+Defaults        badpass_message="I am an Error"
 
+// Archive For Sudo
+Defaults        logfile="/var/log/sudo/sudo.log"
+Defaults        log_input, log_output
+
+// Enable TTY Mode
+Defaults requiretty
+
+// Secure Path
+Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+```
+
+<table>
+    <tr>
+        <th>Term</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><code>Defaults</code></td>
+        <td>A keyword to set global options for <code>sudo</code>.</td>
+    </tr>
+    <tr>
+        <td><code>VariableName</code></td>
+        <td>A variable that specifies a particular rule.</td>
+    </tr>
+</table>
 
 
 
