@@ -391,7 +391,21 @@ and change "NAT" to "Bridged Adapter". This will give your VM its own IP address
 
 ## Sudo Configuration
 <a href="#sudo-configuration"></a>
-<p>in this task we will take <code>sudo</code> command to another level</p>
+<p>In this task, we will take the <code>sudo</code> command to another level.</p>
+<p>We will cover the following:</p>
+<ul>
+    <li>Limit Password Attempts</li>
+    <bdi>When we run <code>sudo</code> in the terminal, we will limit incorrect password attempts to 3.</bdi>
+    <li>Generate Message</li>
+    <bdi>If a user enters the wrong password, we will generate a message.</bdi>
+    <li>Archive for Sudo</li>
+    <bdi>When you run a command, we must store it in the file <code>/var/log/sudo/sudo.log</code>. 
+    If this directory does not exist, create it with <code>mkdir /var/log/sudo && touch /var/log/sudo/sudo.log</code>.</bdi>
+    <li>TTY Mode</li>
+    <bdi><code>sudo</code> must run only by humans, not automated systems.</bdi>
+    <li>Path Restriction</li>
+    <bdi>We should allow execution of commands with <code>sudo</code> only from specific safe directories.</bdi>
+</ul>
 
 
 
