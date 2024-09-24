@@ -39,44 +39,72 @@ Logging: Archive sudo actions (input and output) to /var/log/sudo/.
 TTY Mode: Enable TTY mode for sudo. [must exit a human interaction]
 Path Restriction: Restrict sudo to specific paths (e.g., /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin).
 
-///////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+// Start A New Task With Bash
+
+[1]: Create a script: Write a bash script named monitoring.sh.
+	--- revise core of bash
+	--- "https://youtu.be/tK9Oc6AEnR4?si=_i8E-ABKRYCctmEQ"
+[2]: Gather information: Use commands in the script to collect:
+/*
+	OS architecture and kernel version
+	Number of physical processors
+	Number of virtual processors
+	Current available RAM and its utilization rate
+	Current available memory and its utilization rate
+	Current CPU utilization rate
+	Date and time of the last reboot
+	Whether LVM is active
+	Number of active connections
+	Number of users on the server
+	IPv4 address and MAC address
+	Number of sudo commands executed
+	Display information: Use the wall command to send this information to all terminal sessions.
+*/
+[3]: Schedule the script: Set the script to run every 10 minutes at server startup. || 
+	--- use cron to run it every 10 minutes with wall.
+[4]: Ensure no errors are visible: Make sure the script runs without showing errors to the users.
+[5]: Interrupt: Stop it without modifying the script. [kill || stopping the cron job that executes it].
 
 
 
 
-Changing Passwords:
-Update Passwords: Change passwords for all accounts, including root.
-Step-by-Step Guide:
-
-Configure SSH:
-Edit /etc/ssh/sshd_config to set Port 4242 and PermitRootLogin no.
-Restart SSH service.
-
-Set Up UFW:
-Install UFW using dnf install ufw.
-Allow port 4242: ufw allow 4242/tcp.
-Enable UFW: ufw enable.
 
 
-Change Hostname:
-Edit /etc/hostname and /etc/hosts to set the hostname to your login ending with 42.
-Restart the VM or use hostnamectl to apply changes.
 
 
-Set Password Policy:
-Use chage command to set expiration policies.
-Configure password rules in /etc/security/pwquality.conf.
 
 
-Create User and Set Groups:
-Create a user with useradd and add to groups with usermod -aG user42,sudo <username>.
 
 
-Configure Sudo:
 
-Edit /etc/sudoers to set limits on password attempts, custom messages, and log settings.
-Change All Passwords:
-Use passwd command to update passwords for all accounts.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
