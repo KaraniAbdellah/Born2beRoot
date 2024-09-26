@@ -465,7 +465,7 @@ you can write a shell script that can do it).</p>
     ./monitoring.sh      # execute script file
 ```
 
-<p>NOTE: You can find the code in the monitoring.sh file.</p>
+<p><b>NOTE: You can find the code in the monitoring.sh file.</b></p>
 
 <p><b>System Information:</b></p>
 
