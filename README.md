@@ -23,6 +23,7 @@
   <li><a href="#setup-ufw">Setup UFW</a></li>
   <li><a href="#setup-password">Setup Password</a></li>
   <li><a href="#sudo-configuration">Sudo Configuration</a></li>
+  <li><a href="#script-shell">Script Shell</a></li>
 </ul>
 
 
@@ -445,6 +446,51 @@ Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/
 </table>
 
 
+
+<a name="script-shell"></a>
+
+<p>In this part, we are going to write a script in Bash language to display 
+some information (about the system) every 10 minutes using the cron tool.</p> 
+
+<p><b>Bash:</b> is a programming language used for writing scripts to automate 
+tasks in Linux (which means if you are doing a task every day, 
+you can write a shell script that can do it).</p>
+
+<p><b>NOTE: This course can help you: https://youtu.be/tK9Oc6AEnR4?si=shAdyz34Ofl_m6-w</b></p>
+
+<p><b>Creating & Execution:</b></p>
+
+``` bash
+    touch monitoring.sh  # create script file
+    ./monitoring.sh      # execute script file
+```
+
+<p>NOTE: You can find the code in the monitoring.sh file.</p>
+
+<p><b>System Information:</b></p>
+
+![Output Script](output_script.png)
+
+
+<p><b>Run Script Every 10 Minutes:</b></p>
+
+<p>To run this script every day, we need a tool called <code>cron</code>.</p>
+
+
+``` bash
+    # setup
+    
+    sudo apt install cron
+    sudo systemctl start cron
+    sudo systemctl enable cron
+    sudo systemctl status cron  // should be active
+
+    # configuration to run every 10 minutes
+    
+    crontab -e  // open crontab file
+    */10 * * * * /path/to/monitoring.sh  # run the file every 10 minutes
+    cat /etc/crontab  # for more information about this line
+```
 
 
 

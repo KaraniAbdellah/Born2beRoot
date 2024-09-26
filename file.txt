@@ -62,6 +62,7 @@ Path Restriction: Restrict sudo to specific paths (e.g., /usr/local/sbin:/usr/lo
 */
 [3]: Schedule the script: Set the script to run every 10 minutes at server startup. || 
 	--- use cron to run it every 10 minutes with wall.
+	--- cat /etc/crontab --> more information
 [4]: Ensure no errors are visible: Make sure the script runs without showing errors to the users.
 [5]: Interrupt: Stop it without modifying the script. [kill || stopping the cron job that executes it].
 
