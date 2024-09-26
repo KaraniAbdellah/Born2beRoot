@@ -257,18 +257,18 @@ We need to set up the port, and the port we will use is 4242.</p>
 <p><b>Installing SSH:</b></p>
 
 ``` bash
-sudo systemctl status ssh // SSH could not be found
-sudo apt update // updating the packages in Linux
-sudo apt install openssh-server // Install SSH
-sudo apt reinstall openssh-server // Reinstalls SSH server
+sudo systemctl status ssh # SSH could not be found
+sudo apt update # updating the packages in Linux
+sudo apt install openssh-server # Install SSH
+sudo apt reinstall openssh-server # Reinstalls SSH server
 ```
 
 <p><b>Setup Port:</b></p>
 
 ``` bash
-sudo nano /etc/sshd_config // Change this "#Port 22" by this "Port 4242"
-sudo service ssh restart // Restart the SSH service
-sudo lsof -i -P -n | grep ssh // Ouput --> ...TCP *:4242 (LISTEN)...
+sudo nano /etc/sshd_config # Change this "#Port 22" by this "Port 4242"
+sudo service ssh restart # Restart the SSH service
+sudo lsof -i -P -n | grep ssh # Ouput --> ...TCP *:4242 (LISTEN)...
 ```
 
 <p><b>Problems</b></p>
@@ -276,20 +276,20 @@ sudo lsof -i -P -n | grep ssh // Ouput --> ...TCP *:4242 (LISTEN)...
 <code>ssh.socket</code>. To fix this, run these commands:</p>
 
 ``` bash
-sudo systemctl stop ssh.socket  // Stop SSH controlled by ssh.socket  
-sudo systemctl disable ssh.socket  // To disable SSH controlled by ssh.socket
-sudo systemctl restart ssh  // Restart SSH  
-sudo systemctl start ssh  // Start SSH  
-sudo lsof -i -P -n | grep ssh  // Ouput --> ...TCP *:4242 (LISTEN)...
+sudo systemctl stop ssh.socket  # Stop SSH controlled by ssh.socket  
+sudo systemctl disable ssh.socket  # To disable SSH controlled by ssh.socket
+sudo systemctl restart ssh  # Restart SSH  
+sudo systemctl start ssh  # Start SSH  
+sudo lsof -i -P -n | grep ssh  # Ouput --> ...TCP *:4242 (LISTEN)...
 ```
 
 <p>Sometimes SSH may not work because it needs to be enabled. You should also check its status.
 To do this, run the following commands:</p>
 
 ``` bash
-sudo systemctl status ssh  // Check if SSH is disabled or enabled  
-sudo systemctl enable ssh  // Enable SSH  
-sudo systemctl status ssh  // Output: ...loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)...
+sudo systemctl status ssh  # Check if SSH is disabled or enabled  
+sudo systemctl enable ssh  # Enable SSH  
+sudo systemctl status ssh  # Output: ...loaded (/usr/lib/systemd/system/ssh.service; enabled; preset: enabled)...
 ```
 
 <p><b>note:</b> The port must be set up on both machines (machine A and machine B).</p>
@@ -309,9 +309,9 @@ can come in or go out of the computer through port 4242.</b></p>
 
 ```bash
 sudo apt update
-sudo apt install ufw // Install UFW
-sudo enable ufw // Enable UFW 
-sudo allow 4242/tcp // Allow data to come in or go out from port 4242
+sudo apt install ufw # Install UFW
+sudo enable ufw # Enable UFW 
+sudo allow 4242/tcp # Allow data to come in or go out from port 4242
 sudo ufw reload 
 sudo ufw status
 ```
@@ -345,21 +345,21 @@ That’s why we should create a new user in machine B.</p>
 <p><b>Setup the Password Policy:</b></p>
 
 ```bash
-sudo chage --maxdays 30 john  // Max age: 30 days  
-sudo chage --mindays 2 john  // Min age: 2 days  
-sudo chage --warndays 7 john  // Warn: 7 days before expiration  
+sudo chage --maxdays 30 john  # Max age: 30 days  
+sudo chage --mindays 2 john  # Min age: 2 days  
+sudo chage --warndays 7 john  # Warn: 7 days before expiration  
 
 sudo nano /etc/pam.d/common-password  
-// Add this line:  
-// password requisite pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username  
+# Add this line:  
+# password requisite pam_pwquality.so retry=3 minlen=10 ucredit=-1 lcredit=-1 dcredit=-1 maxrepeat=3 reject_username  
 
-retry=3 // 3 attempts allowed
-minlen=10 // Minimum 10 characters
-ucredit=-1 // At least 1 uppercase letter
-lcredit=-1 // At least 1 lowercase letter
-dcredit=-1 // At least 1 digit
-maxrepeat=3 // Max 3 identical characters
-reject_username // No username in password
+retry=3 # 3 attempts allowed
+minlen=10 # Minimum 10 characters
+ucredit=-1 # At least 1 uppercase letter
+lcredit=-1 # At least 1 lowercase letter
+dcredit=-1 # At least 1 digit
+maxrepeat=3 # Max 3 identical characters
+reject_username # No username in password
 ```
 
 <p>The purpose of setting up a password policy in your task is to <b>increase security</b>.</p>
@@ -367,9 +367,9 @@ reject_username // No username in password
 <p><b>Create User and Add It to Group</b></p>
 
 ```bash
-sudo groupadd test  // Create a group  
-sudo useradd -m -g test john  // Create a new user "john" and add it to the "test" group  
-sudo passwd john // enter the password respecting the roles
+sudo groupadd test  # Create a group  
+sudo useradd -m -g test john  # Create a new user "john" and add it to the "test" group  
+sudo passwd john # enter the password respecting the roles
 ```
 
 <p><b>Let's Connect:</b></p>
@@ -378,7 +378,7 @@ connect to Machine B. To do this, follow these commands:</p>
 
 
 ```bash
-ssh -p 4242 john@ip_address_machine_B  // Get the IP address on machine B using 'ip a'
+ssh -p 4242 john@ip_address_machine_B  # Get the IP address on machine B using 'ip a'
 ```
 <p><b>After running this command, enter the password and you will find yourself on machine B.</b></p>
 
@@ -411,22 +411,22 @@ and change "NAT" to "Bridged Adapter". This will give your VM its own IP address
 <p>Know let's do it:</p>
 
 ``` bash
-sudo visudo // open configuration file of sudo
+sudo visudo # open configuration file of sudo
 
-// Password Attemps
+# Password Attemps
 Defaults        passwd_tries=3
 
-// Generate Error Message
+# Generate Error Message
 Defaults        badpass_message="I am an Error"
 
-// Archive For Sudo
+# Archive For Sudo
 Defaults        logfile="/var/log/sudo/sudo.log"
 Defaults        log_input, log_output
 
-// Enable TTY Mode
+# Enable TTY Mode
 Defaults requiretty
 
-// Secure Path
+# Secure Path
 Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 ```
 
@@ -456,7 +456,7 @@ some information (about the system) every 10 minutes using the cron tool.</p>
 tasks in Linux (which means if you are doing a task every day, 
 you can write a shell script that can do it).</p>
 
-<p><b>note:</b> This course can help you: https://youtu.be/tK9Oc6AEnR4?si=shAdyz34Ofl_m6-w</p>
+<p><b>note:</b> This course can help you: https:#youtu.be/tK9Oc6AEnR4?si=shAdyz34Ofl_m6-w</p>
 
 <p><b>Creating & Execution:</b></p>
 
@@ -483,11 +483,11 @@ you can write a shell script that can do it).</p>
     sudo apt install cron
     sudo systemctl start cron
     sudo systemctl enable cron
-    sudo systemctl status cron  // should be active
+    sudo systemctl status cron  # should be active
 
     # configuration to run every 10 minutes
     
-    crontab -e  // open crontab file
+    crontab -e  # open crontab file
     */10 * * * * /path/to/monitoring.sh  # run the file every 10 minutes
     cat /etc/crontab  # for more information about this line
 ```
