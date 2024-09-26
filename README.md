@@ -467,7 +467,7 @@ you can write a shell script that can do it).</p>
 
 <p><b>NOTE: You can find the code in the monitoring.sh file.</b></p>
 
-<p><b>System Information:</b></p>
+<p><b>System Informations:</b></p>
 
 ![Output Script](output_script.png)
 
